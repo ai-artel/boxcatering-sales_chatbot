@@ -230,3 +230,6 @@ boxcatering_*.png
 .idea/
 /РОБОЧИЙ!!!!.txt
 /requirements.in
+/Docker/
+
+.gitignore
