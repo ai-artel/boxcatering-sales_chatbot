@@ -4,7 +4,7 @@ let reconnectTimer = null
 const RECONNECT_DELAY_MS = 1500
 
 const srcLink = Array.from(document.getElementsByTagName("script")).find((s) => s.src.includes("widget.js"))?.getAttribute("src") || ""
-
+console.log(srcLink)
 const srcUrl = srcLink.startsWith("http")
   ? new URL(srcLink)
   : new URL(srcLink, window.location.origin)
@@ -19,7 +19,7 @@ function loadStyles(base, files) {
     return new Promise((resolve, reject) => {
       const link = document.createElement("link")
       link.rel = "stylesheet"
-      link.href = `https://boxcatering-chatbot.todo.ltd/static/${file}?v=3`;
+      link.href = `${homeLink}/static/${file}?v=3`;
       link.onload = () => resolve(file)
       link.onerror = () => reject(new Error(`Failed to load style: ${file}`))
       document.head.appendChild(link)
