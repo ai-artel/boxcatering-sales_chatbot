@@ -19,7 +19,7 @@ function loadStyles(base, files) {
     return new Promise((resolve, reject) => {
       const link = document.createElement("link")
       link.rel = "stylesheet"
-      link.href = `${homeLink}/static/${file}?v=3`;
+      link.href = `${homeLink}/static/${file}?v=4`;
       link.onload = () => resolve(file)
       link.onerror = () => reject(new Error(`Failed to load style: ${file}`))
       document.head.appendChild(link)
@@ -93,7 +93,7 @@ function loadChatWidget() {
                     <div class="chat-container callback-widget-button-hide hide-container">
                         <div class="chat-header">
                             <div class="avatar">👩</div>
-                            <h2 data-i18n="chatTest.headerTitleName">Marichka</h2>
+                            <h2 id="botName">Marichka</h2>
                             <button class="close-btn" onclick="closeChat()">&times;</svg>
                             </button>
                         </div>
@@ -447,6 +447,8 @@ async function fetchActiveChatbotConfig() {
     const welcome = cfg.welcome_message || ""
     const node = document.getElementById("bot-welcome-content")
     if (node) node.textContent = welcome
+    const botName = document.getElementById("botName")
+    botName.textContent = cfg.chatbot_name
   } catch (e) {
     console.warn("Failed to load active chatbot config:", e)
     const node = document.getElementById("bot-welcome-content")

@@ -1,5 +1,5 @@
 """Telegram service for sending notifications."""
-
+import asyncio
 from typing import Optional
 from zoneinfo import ZoneInfo
 
