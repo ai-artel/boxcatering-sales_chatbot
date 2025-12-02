@@ -319,10 +319,7 @@ async function initI18N() {
     console.log(e)
   }
 }
-
-setTimeout(() => {
-  loadChatWidget()
-}, 5000)
+loadChatWidget()
 
 document.addEventListener("i18n:languageChanged", () => {
   const placeholder = document.getElementById("chat-input")
