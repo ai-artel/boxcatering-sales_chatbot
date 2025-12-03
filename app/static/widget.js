@@ -532,7 +532,7 @@ function setStatus(status, cssClass) {
 function connectWebSocket() {
   if (ws && (ws.readyState === WebSocket.OPEN || ws.readyState === WebSocket.CONNECTING)) return
   const protocol = location.protocol === "https:" ? "wss" : "ws"
-  let url = "https://boxcatering-chatbot.todo.ltd/chat/ws"
+  let url = `${homeLink}/chat/ws`
 
   if (["0.0.0.0:8000", "localhost:8000"].includes(location.host)) {
     url = `${protocol}://${location.host}/chat/ws${location.search || ""}`
