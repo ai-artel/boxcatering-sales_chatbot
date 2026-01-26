@@ -1,5 +1,7 @@
 // widget_utm.js
 // https://boxcatering-ai-prod.todo.ltd/static/widget_utm.js
+// odoo link
+// https://erp.box-catering.ua/init_widget_session
 
 /**
  * Returns a string of UTM parameters from the current URL
@@ -84,8 +86,7 @@ function sendUTMParams(link, action) {
         });
 }
 
-const lscriptTag = document.currentScript;
-const lsodoo = lscriptTag.getAttribute("data-odoo") || "#";
+const lsodoo = "https://erp.box-catering.ua/init_widget_session"; // odoo link
 
 let uid = genUID();
 
