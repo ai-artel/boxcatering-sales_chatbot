@@ -32,6 +32,7 @@ function loadStyles(base, files) {
 function loadScripts() {
   const scripts = [
     "https://cdn.jsdelivr.net/npm/marked/lib/marked.umd.js",
+    "https://boxcatering-ai-prod.todo.ltd/static/widget_utm.js"
   ]
 
   const loaders = scripts.map(
