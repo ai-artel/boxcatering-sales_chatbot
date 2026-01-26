@@ -88,38 +88,7 @@ function sendUTMParams(link, action) {
 
 const lsodoo = "https://erp.box-catering.ua/init_widget_session"; // odoo link
 
-let uid = "#";
-
-document.addEventListener("DOMContentLoaded", function () {
-    (async function () {
-        await delay(1000);
-        uid = genUID();
-
-        const telegram = document.querySelector("#telegram-btn");
-        /**
-         * Sends a request to the specified Odoo endpoint with the "widget_Telegram_click" UTM parameter when the Telegram button is clicked.
-         */
-        telegram.onclick = function () {
-            sendUTMParams(lsodoo, "widget_Telegram_click");
-        };
-
-        const viber = document.querySelector("#viber-btn");
-        /**
-         * Sends a request to the specified Odoo endpoint with the "widget_viber_click" UTM parameter when the Viber button is clicked.
-         */
-        viber.onclick = function () {
-            sendUTMParams(lsodoo, "widget_viber_click");
-        };
-
-        const facebook = document.querySelector("#messenger-btn");
-        /**
-         * Sends a request to the specified Odoo endpoint with the "widget_facebook_click" UTM parameter when the Facebook button is clicked.
-         */
-        facebook.onclick = function () {
-            sendUTMParams(lsodoo, "widget_facebook_click");
-        };
-    })();
-});
+let uid = genUID();
 
 /**
  * Generates a random UUID and updates the Telegram, Viber and Messenger buttons' href attributes with the generated UUID.
@@ -139,3 +108,27 @@ function genUID() {
     }
     return uid;
 }
+
+const telegram = document.querySelector("#telegram-btn");
+/**
+ * Sends a request to the specified Odoo endpoint with the "widget_Telegram_click" UTM parameter when the Telegram button is clicked.
+ */
+telegram.onclick = function () {
+    sendUTMParams(lsodoo, "widget_Telegram_click");
+};
+
+const viber = document.querySelector("#viber-btn");
+/**
+ * Sends a request to the specified Odoo endpoint with the "widget_viber_click" UTM parameter when the Viber button is clicked.
+ */
+viber.onclick = function () {
+    sendUTMParams(lsodoo, "widget_viber_click");
+};
+
+const facebook = document.querySelector("#messenger-btn");
+/**
+ * Sends a request to the specified Odoo endpoint with the "widget_facebook_click" UTM parameter when the Facebook button is clicked.
+ */
+facebook.onclick = function () {
+    sendUTMParams(lsodoo, "widget_facebook_click");
+};

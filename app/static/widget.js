@@ -32,7 +32,6 @@ function loadStyles(base, files) {
 function loadScripts() {
   const scripts = [
     "https://cdn.jsdelivr.net/npm/marked/lib/marked.umd.js",
-    "https://boxcatering-ai-prod.todo.ltd/static/widget_utm.js"
   ]
 
   const loaders = scripts.map(
@@ -49,6 +48,27 @@ function loadScripts() {
               marked.use({ breaks: true, gfm: true })
             }
           }
+          resolve(src)
+        }
+        script.onerror = () => reject(new Error(`Failed to load script: ${src}`))
+        document.head.appendChild(script)
+      }),
+  )
+
+  return Promise.allSettled(loaders)
+}
+
+function loadScriptsDelay() {
+  const scripts = [
+    "https://boxcatering-ai-prod.todo.ltd/static/widget_utm.js"
+  ]
+
+  const loaders = scripts.map(
+    (src) =>
+      new Promise((resolve, reject) => {
+        const script = document.createElement("script")
+        script.src = src
+        script.onload = () => {
           resolve(src)
         }
         script.onerror = () => reject(new Error(`Failed to load script: ${src}`))
@@ -279,6 +299,7 @@ function loadChatWidget() {
             }, 500)
             loadChatHistory()
             await initI18N()
+            loadScriptsDelay()
           })()
         }, 250)
       }
