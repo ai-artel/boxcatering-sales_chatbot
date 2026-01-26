@@ -88,7 +88,14 @@ function sendUTMParams(link, action) {
 
 const lsodoo = "https://erp.box-catering.ua/init_widget_session"; // odoo link
 
-let uid = genUID();
+let uid = "#";
+
+document.addEventListener("DOMContentLoaded", function () {
+    (async function () {
+        await delay(1000);
+        uid = genUID();
+    })();
+});
 
 /**
  * Generates a random UUID and updates the Telegram, Viber and Messenger buttons' href attributes with the generated UUID.
