@@ -109,27 +109,6 @@ function genUID() {
     return uid;
 }
 
-const widget = document.querySelector(".callback-widget-button-wrapper");
-
-/**
- * Toggles the visibility of the widget's shadow and social buttons when clicked.
- *
- * @listens
- *   - Toggles the "callback-widget-button-bottom" class on the widget element.
- *   - Toggles the "callback-widget-button-hide" and "callback-widget-button-show" classes on the shadow and social elements.
- */
-widget.onclick = function () {
-    widget.classList.toggle("callback-widget-button-bottom");
-
-    const shadow = document.querySelector(".callback-widget-button-shadow");
-    shadow.classList.toggle("callback-widget-button-hide");
-    shadow.classList.toggle("callback-widget-button-show");
-
-    const social = document.querySelector(".callback-widget-button-social");
-    social.classList.toggle("callback-widget-button-hide");
-    social.classList.toggle("callback-widget-button-show");
-};
-
 const telegram = document.querySelector("#telegram-btn");
 /**
  * Sends a request to the specified Odoo endpoint with the "widget_Telegram_click" UTM parameter when the Telegram button is clicked.
