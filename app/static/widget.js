@@ -3,6 +3,9 @@ let ws = null
 let reconnectTimer = null
 const RECONNECT_DELAY_MS = 1500
 
+const params = new URLSearchParams(window.location.search);
+const OPEN_BY_DEFAULT = params.get('open') === '1';
+
 const srcLink = Array.from(document.getElementsByTagName("script")).find((s) => s.src.includes("widget.js"))?.getAttribute("src") || ""
 console.log(srcLink)
 const srcUrl = srcLink.startsWith("http")
@@ -300,6 +303,7 @@ function loadChatWidget() {
             loadChatHistory()
             await initI18N()
             loadScriptsDelay()
+            displayChat()
           })()
         }, 250)
       }
